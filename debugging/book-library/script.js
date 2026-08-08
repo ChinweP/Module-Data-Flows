@@ -45,7 +45,7 @@ function submit() {
 
     title.value = "";
     author.value = "";
-    pages.value  = "";
+    pages.value = "";
     check.checked = false;
   }
 }
