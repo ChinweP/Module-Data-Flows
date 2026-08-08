@@ -7,7 +7,7 @@ window.addEventListener("load", function (e) {
 
 function populateStorage() {
   if (myLibrary.length == 0) {
-    let book1 = new Book("Robison Crusoe", "Daniel Defoe", "252", true);
+    let book1 = new Book("Robinson Crusoe", "Daniel Defoe", "252", true);
     let book2 = new Book(
       "The Old Man and the Sea",
       "Ernest Hemingway",
@@ -31,6 +31,8 @@ function submit() {
   if (
     title.value == null ||
     title.value == "" ||
+    author.value ==null ||
+    author.value == "" ||
     pages.value == null ||
     pages.value == ""
   ) {
@@ -76,7 +78,7 @@ function render() {
     changeBut.className = "btn btn-success";
     wasReadCell.appendChild(changeBut);
     let readStatus = "";
-    if (myLibrary[i].check == false) {
+    if (myLibrary[i].check == true) {
       readStatus = "Yes";
     } else {
       readStatus = "No";
@@ -90,11 +92,11 @@ function render() {
 
     //add delete button to every row and render again
     let delButton = document.createElement("button");
-    delBut.id = i + 5;
-    deleteCell.appendChild(delBut);
-    delBut.className = "btn btn-warning";
-    delBut.innerHTML = "Delete";
-    delBut.addEventListener("clicks", function () {
+    delButton.id = i + 5;
+    deleteCell.appendChild(delButton);
+    delButton.className = "btn btn-warning";
+    delButton.innerHTML = "Delete";
+    delButton.addEventListener("click", function () {
       alert(`You've deleted title: ${myLibrary[i].title}`);
       myLibrary.splice(i, 1);
       render();
