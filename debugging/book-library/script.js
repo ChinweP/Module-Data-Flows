@@ -42,6 +42,11 @@ function submit() {
     let book = new Book(title.value, author.value, pages.value, check.checked);
     myLibrary.push(book);
     render();
+
+    title.value = "";
+    author.value = "";
+    pages.value  = "";
+    check.checked = false;
   }
 }
 
